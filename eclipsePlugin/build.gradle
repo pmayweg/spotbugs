@@ -145,18 +145,7 @@ jar {
   // Make sure we always update the manifest when building
   dependsOn updateManifest
   includeEmptyDirs = false
-  from(configurations.compile.collect { zipTree(it) }) {
-    exclude 'edu/umd/cs/findbugs/gui/**/*.*'
-    exclude 'edu/umd/cs/findbugs/gui2/**/*.*'
-    exclude 'edu/umd/cs/findbugs/userAnnotations/ri/**/*.*'
-    exclude 'edu/umd/cs/findbugs/sourceViewer/**/*.*'
-    exclude 'edu/umd/cs/findbugs/anttask/**/*.*'
-    exclude 'edu/umd/cs/findbugs/tools/**/*.*'
-    exclude 'edu/umd/cs/findbugs/annotations/**/*.*'
-    exclude 'net/jcip/annotations/**/*.*'
-    exclude 'META-INF/**.*'
-  }
-  exclude 'de/tobject/findbugs/tools/**'
+  from sourceSets.main.output
   archiveName 'spotbugs-plugin.jar'
 }
 
